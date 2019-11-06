@@ -34,6 +34,15 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/${sit
     -subj "/C=TT/ST=TT/L=TT/O=TEMP/OU=TEMP/CN=$siteURL/emailAddress=TEMP"
 }
 
+create_wp_db () {
+siteNoP=$(echo "${siteURL}" | sed 's/\.//g')
+# create wordpress user with passwd
+wpasswd=$(openssl rand 39 -base64 | cut -c10-30)
+wpapasswd=$(openssl rand 39 -base64 | cut -c15-37)
+mysql -e "create database siteNoP"
+mysql -e "grant all on ${siteNoP}.* to ${siteNoP}@localhost identified by '${wpasswd}'"
+}
+
 vHostHTTP () {
 siteFile="/etc/nginx/sites-available/${siteURL}"
 # create nginx config for site
