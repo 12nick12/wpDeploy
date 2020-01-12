@@ -210,7 +210,7 @@ mkdir -p "${siteFP}" || exit
 cd "${siteFP}" || exit
 wp core download
 wp config create --dbname="$(siteNoP}" --dbuser="$(siteNoP}" --dbpass="${wpasswd}" --path="${siteFP}"
-wp core install --url="${siteURL}" --title="${siteTitle}" --admin_user="${adminEmail}" --admin_password="${wpapasswd}" --admin_email="${adminEmail}" --path="${siteFP}" --skip-email
+wp core install --url="${siteURL}" --title="${siteTitle}" --admin_user="wpm258159" --admin_password="${wpapasswd}" --admin_email="${adminEmail}" --path="${siteFP}" --skip-email
 chown -R nginx:nginx "${siteFP}"
 
 # Confiugre nginx and create config
