@@ -211,9 +211,9 @@ create_wp_db
 mkdir -p "${siteFP}" || exit
 cd "${siteFP}" || exit
 chown -R "${wwwUser}":"${wwwUser}" "$(dirname "${siteFP}")"
-sudo -u "${wwwUser}" wp core download
-sudo -u "${wwwUser}" wp config create --dbname="$(siteNoP}" --dbuser="$(siteNoP}" --dbpass="${wpasswd}" --path="${siteFP}"
-sudo -u "${wwwUser}" wp core install --url="${siteURL}" --title="${siteTitle}" --admin_user="wpm258159" --admin_password="${wpapasswd}" --admin_email="${adminEmail}" --path="${siteFP}" --skip-email
+sudo -u "${wwwUser}" /usr/local/bin/wp core download
+sudo -u "${wwwUser}" /usr/local/bin/wp config create --dbname="$(siteNoP}" --dbuser="$(siteNoP}" --dbpass="${wpasswd}" --path="${siteFP}"
+sudo -u "${wwwUser}" /usr/local/bin/wp core install --url="${siteURL}" --title="${siteTitle}" --admin_user="wpm258159" --admin_password="${wpapasswd}" --admin_email="${adminEmail}" --path="${siteFP}" --skip-email
 
 
 # Confiugre nginx and create config
