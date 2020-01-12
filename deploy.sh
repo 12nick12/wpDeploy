@@ -227,7 +227,7 @@ if [ yy == "y" ]; then
 fi
 
 # Echo errythang that matters
-echo "The SQL root password is: ${sqlpswd} and the WP sql password is: ${wpasswd}"
+echo "The WP sql password is: ${wpasswd}"
 echo "${siteName} is at ${siteProto}${siteURL} with the title ${siteTitle} and the admin email of ${adminEmail}"
 echo "The wp-admin email/username is: ${adminEmail} and the password is: ${wpapasswd}"
 echo "Thank you and have a great day"
