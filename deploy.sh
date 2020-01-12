@@ -22,7 +22,7 @@ read -p "If SSL type ssl otherwise don't: " siteProtoIn
 read -p "Enter Site URL: " siteURL
 read -p "Enter WPAdmin email: " adminEmail
 
-if [[ siteProtoIn == "ssl" ]]; then
+if [[ $siteProtoIn == "ssl" ]]; then
 	siteProto="https://"
 	ssl=1
 fi
@@ -221,7 +221,7 @@ nginx-conf
 ln -s ${siteFile} /etc/nginx/sites-enabled/
 nginx -t
 read -p "Would you like to reload nginx to take new changes?: [y/n]" yy
-if [ yy == "y" ]; then 
+if [ $yy == "y" ]; then 
   echo "reloading nginx"
   systemctl reload nginx
 fi
