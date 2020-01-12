@@ -39,7 +39,7 @@ siteNoP=$(echo "${siteURL}" | sed 's/\.//g')
 # create wordpress user with passwd
 wpasswd=$(openssl rand 39 -base64 | cut -c10-30)
 wpapasswd=$(openssl rand 39 -base64 | cut -c15-37)
-mysql -e "create database siteNoP"
+mysql -e "create database ${siteNoP}"
 mysql -e "grant all on ${siteNoP}.* to ${siteNoP}@localhost identified by '${wpasswd}'"
 }
 
@@ -209,7 +209,7 @@ create_wp_db
 mkdir -p "${siteFP}" || exit
 cd "${siteFP}" || exit
 wp core download
-wp config create --dbname=wordpress --dbuser=wordpress --dbpass="${wpasswd}" --path="${siteFP}"
+wp config create --dbname="$(siteNoP}" --dbuser="$(siteNoP}" --dbpass="${wpasswd}" --path="${siteFP}"
 wp core install --url="${siteURL}" --title="${siteTitle}" --admin_user="${adminEmail}" --admin_password="${wpapasswd}" --admin_email="${adminEmail}" --path="${siteFP}" --skip-email
 chown -R nginx:nginx "${siteFP}"
 
