@@ -11,6 +11,8 @@
 #adminEmail="test@test.com"
 #siteURL="test.url.com"
 #siteProto="http://"
+
+wwwUser="nginx"
 #### DON"T TOUCH BELOW HERE ####
 
 get_info () {
@@ -208,10 +210,11 @@ create_wp_db
 # Create site with wp-cli
 mkdir -p "${siteFP}" || exit
 cd "${siteFP}" || exit
-wp core download
-wp config create --dbname="$(siteNoP}" --dbuser="$(siteNoP}" --dbpass="${wpasswd}" --path="${siteFP}"
-wp core install --url="${siteURL}" --title="${siteTitle}" --admin_user="wpm258159" --admin_password="${wpapasswd}" --admin_email="${adminEmail}" --path="${siteFP}" --skip-email
-chown -R nginx:nginx "${siteFP}"
+chown -R "${wwwUser}":"${wwwUser}" "$(dirname "${siteFP}")"
+sudo -u "${wwwUser}" wp core download
+sudo -u "${wwwUser}" wp config create --dbname="$(siteNoP}" --dbuser="$(siteNoP}" --dbpass="${wpasswd}" --path="${siteFP}"
+sudo -u "${wwwUser}" wp core install --url="${siteURL}" --title="${siteTitle}" --admin_user="wpm258159" --admin_password="${wpapasswd}" --admin_email="${adminEmail}" --path="${siteFP}" --skip-email
+
 
 # Confiugre nginx and create config
 nginx-conf
