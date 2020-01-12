@@ -20,7 +20,7 @@ read -p "Enter Site Name: " siteName
 read -p "Enter Site Title: " siteTitle
 read -p "If SSL type ssl otherwise don't: " siteProtoIn
 read -p "Enter Site URL: " siteURL
-read -p "Enter WPAdmin email: " adminEmai
+read -p "Enter WPAdmin email: " adminEmail
 
 if [[ siteProtoIn == "ssl" ]]; then
 	siteProto="https://"
