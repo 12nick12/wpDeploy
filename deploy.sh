@@ -158,7 +158,6 @@ server {
         fastcgi_param   SCRIPT_FILENAME    \$document_root\$fastcgi_script_name;
         fastcgi_param   SCRIPT_NAME        \$fastcgi_script_name;
     }
-	ssl on;
     ssl_certificate /etc/nginx/ssl/${siteURL}/crt;
     ssl_certificate_key /etc/nginx/ssl/${siteURL}/key;
 
